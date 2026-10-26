@@ -1,0 +1,115 @@
+:root {
+  --cream: #f6e6c3;
+  --cream-2: #fff9e8;
+  --yellow: #ffe08a;
+  --green: #d9f5e3;
+  --pink: #ffd9e6;
+  --ink: #4a3b2f;
+  --line: #c9a96a;
+}
+
+html, body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+}
+
+#botFrame {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  background: #111;
+}
+
+#panel {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  z-index: 2147483647;
+  width: min(280px, 46vw);
+  max-height: calc(100vh - 20px);
+  overflow-y: auto;
+  box-sizing: border-box;
+  padding: 12px;
+  background: linear-gradient(160deg, rgba(255, 249, 232, 0.98), rgba(246, 230, 195, 0.98));
+  border: 2px solid var(--line);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(120, 90, 40, 0.22);
+}
+
+#panel h1 {
+  margin: 0 0 8px;
+  color: #8a5a22;
+  font-size: 18px;
+  letter-spacing: 0.04em;
+}
+
+#status {
+  margin: 0 0 10px;
+  min-height: 34px;
+  color: var(--ink);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.row {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 7px;
+}
+
+button, select {
+  min-height: 32px;
+  padding: 5px 10px;
+  background: linear-gradient(135deg, var(--cream-2), var(--green));
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button {
+  flex: 1;
+}
+
+button:hover, select:hover {
+  filter: brightness(1.03);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+button.active {
+  background: linear-gradient(135deg, var(--yellow), var(--pink));
+  border-color: #8a6a2f;
+}
+
+select {
+  width: 100%;
+  margin-bottom: 7px;
+  border-radius: 10px;
+  box-sizing: border-box;
+}
+
+#reload {
+  width: 100%;
+  background: linear-gradient(135deg, var(--pink), var(--yellow));
+}
+
+.hint {
+  margin: 8px 0 0;
+  color: #7a6a52;
+  font-size: 11px;
+  line-height: 1.45;
+}
