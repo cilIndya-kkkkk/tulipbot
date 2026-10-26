@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TulipBot · Proxy Demo</title>
+  <link rel="stylesheet" href="bot.css">
+</head>
+<body>
+  <iframe id="botFrame" title="TulipBot client"></iframe>
+
+  <aside id="panel">
+    <h1>TulipBot</h1>
+    <p id="status">Loading bot client…</p>
+    <div class="row">
+      <button id="allOn" type="button">All On</button>
+      <button id="allOff" type="button">All Off</button>
+    </div>
+    <div class="row">
+      <button id="opening" type="button">Opening</button>
+      <button id="infinite" type="button">Infinite</button>
+    </div>
+    <select id="botMode" aria-label="Bot mode">
+      <option value="off">Bot Off</option>
+      <option value="v20reserve">V20 Reserve</option>
+      <option value="best">Land Max</option>
+      <option value="messiah">Messiah</option>
+    </select>
+    <button id="reload" type="button">Reload bot client</button>
+    <p class="hint">Join the same lobby in your main client and this bot, spawn manually for now, then press All On.</p>
+  </aside>
+
+  <script src="bot.js"></script>
+</body>
+</html>
