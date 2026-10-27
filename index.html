@@ -3,15 +3,68 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TulipBot · Proxy Demo</title>
+  <title>TulipBot · Main + Bots</title>
   <link rel="stylesheet" href="bot.css">
 </head>
 <body>
-  <iframe id="botFrame" title="TulipBot client"></iframe>
+  <iframe id="mainFrame" title="Main game"></iframe>
+
+  <div id="botWindow0" class="botWindow" data-bot="0">
+    <div class="botHeader">
+      <span>Bot 1</span>
+      <span class="botHeaderButtons">
+        <button class="botReload" type="button" title="Reload this bot">↻</button>
+        <button class="botMinimize" type="button" title="Minimize bot view">–</button>
+      </span>
+    </div>
+    <iframe class="botFrame" title="Bot 1 client"></iframe>
+  </div>
+
+  <div id="botWindow1" class="botWindow" data-bot="1">
+    <div class="botHeader">
+      <span>Bot 2</span>
+      <span class="botHeaderButtons">
+        <button class="botReload" type="button" title="Reload this bot">↻</button>
+        <button class="botMinimize" type="button" title="Minimize bot view">–</button>
+      </span>
+    </div>
+    <iframe class="botFrame" title="Bot 2 client"></iframe>
+  </div>
+
+  <div id="botWindow2" class="botWindow" data-bot="2">
+    <div class="botHeader">
+      <span>Bot 3</span>
+      <span class="botHeaderButtons">
+        <button class="botReload" type="button" title="Reload this bot">↻</button>
+        <button class="botMinimize" type="button" title="Minimize bot view">–</button>
+      </span>
+    </div>
+    <iframe class="botFrame" title="Bot 3 client"></iframe>
+  </div>
+
+  <button id="panelOpen" type="button" class="hidden" title="Open TulipBot panel">TulipBot</button>
 
   <aside id="panel">
-    <h1>TulipBot</h1>
-    <p id="status">Loading bot client…</p>
+    <div class="panel-head">
+      <h1>TulipBot</h1>
+      <button id="panelHide" type="button" title="Hide panel">×</button>
+    </div>
+
+    <p id="syncStatus">Lobby: waiting for main client…</p>
+    <p id="status">Bots: loading…</p>
+
+    <div class="row">
+      <button id="multibot" type="button">Multibot</button>
+      <button id="verifyNext" type="button">Next verification</button>
+    </div>
+
+    <div class="row">
+      <input id="relayPattern" type="text" placeholder="Relay base, e.g. ws://127.0.0.1:900{n}/">
+    </div>
+    <div class="row">
+      <button id="applyRelay" type="button">Apply relay</button>
+    </div>
+
     <div class="row">
       <button id="allOn" type="button">All On</button>
       <button id="allOff" type="button">All Off</button>
@@ -26,8 +79,25 @@
       <option value="best">Land Max</option>
       <option value="messiah">Messiah</option>
     </select>
-    <button id="reload" type="button">Reload bot client</button>
-    <p class="hint">Join the same lobby in your main client and this bot, spawn manually for now, then press All On.</p>
+    <label class="check">
+      <input id="autoAllOn" type="checkbox" checked>
+      Auto All On when a bot enters a game
+    </label>
+    <label class="check">
+      <input id="autoReady" type="checkbox" checked>
+      Auto Ready bots in multiplayer lobby
+    </label>
+    <button id="reload" type="button">Reload bot clients</button>
+
+    <div class="row">
+      <input id="lobbyCode" type="text" placeholder="FX custom lobby code">
+      <button id="joinLobby" type="button">Join bots</button>
+    </div>
+    <div class="row">
+      <button id="syncLobby" type="button">Sync from main</button>
+    </div>
+
+    <p class="hint">Auto Ready works in the normal multiplayer lobby. Multibot docks the three bot views on the left 25% and hides the floating windows; drag each bot header to move floating windows. Use ↻ in a bot header to reload only that bot (keeps the others verified). Relay base uses {n} for bot 1/2/3 (e.g. ws://127.0.0.1:900{n}/) and sends each bot through its own proxy so the game server sees a different IP. The optional FX custom lobby row still mirrors a custom lobby code to all bots.</p>
   </aside>
 
   <script src="bot.js"></script>

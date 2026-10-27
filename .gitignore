@@ -1,3 +1,7 @@
 node_modules/
 .DS_Store
 *.log
+relay/config.json
+relay/config.test.json
+proxy/
+relay/data/
